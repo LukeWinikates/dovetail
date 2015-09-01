@@ -12,14 +12,17 @@ public class Expect {
     static final Queue<Invocation> invocations = new LinkedList<>();
 
     public static <T> T expectable(final T instance) {
+        return createInstance(instance, instance.getClass());
+    }
 
+    private static <T> T createInstance(T instance, Class<?> superclass) {
         ProxyFactory factory = new ProxyFactory();
-        factory.setSuperclass(instance.getClass());
+        factory.setSuperclass(superclass);
         factory.setFilter(notInheredFromObject());
         MethodHandler handler = rememberCall(instance);
 
         try {
-            return(T) (factory.create(new Class<?>[0], new Object[0], handler));
+            return (T) (factory.create(new Class<?>[0], new Object[0], handler));
         } catch (NoSuchMethodException | InstantiationException | InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
