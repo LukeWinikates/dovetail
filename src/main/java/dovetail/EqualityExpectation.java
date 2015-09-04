@@ -23,6 +23,4 @@ public class EqualityExpectation<T> implements Expectation {
                 .thenReturn(returnValue);
         return mock;
     }
-
-
 }
