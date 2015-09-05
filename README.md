@@ -1,5 +1,7 @@
 # Dovetail
 
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Joinery-throughdovetail.svg/241px-Joinery-throughdovetail.svg.png "Image CC: attribution, sharealike, courtesy Wikipedia user SilentC https://en.wikipedia.org/wiki/File:Joinery-throughdovetail.svg")
+
 Named for wooden joints that are carefully cut to lock together securely, Dovetail is a testing library that handles assertions a little differently. Instead of the traditional `assert` or `assertThat`, which is called to create a *side effect*, Dovetail asserts and matchers return *object values*. This allows assertions to be named, reused, and transformed. The most valuable transformation this enables is turning asserts -- the *end* states of tests -- into test setup in the form of doubles -- ingredients for other tests.
 
 ## Motivation
